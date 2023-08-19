@@ -5,15 +5,15 @@ defmodule DiscordSender do
   @username "Fernando Rocha"
   @avatar_url "https://i.ibb.co/QHHPPH4/roch1.jpg"
 
-  def send_message(clip_name, clip_data) do
-    build_json_payload() |> send_discord_request(clip_name, clip_data)
+  def send_clip(clip) do
+    build_json_payload() |> send_discord_request(clip)
   end
 
   defp build_json_payload do
     Poison.encode!(%{"username" => @username, "avatar_url" => @avatar_url})
   end
 
-  defp send_discord_request(json_payload, clip_name, clip_data) do
+  defp send_discord_request(json_payload, clip) do
     webhook_url = File.read!(".webhook_url")
 
     HTTP.request!(
@@ -28,9 +28,9 @@ defmodule DiscordSender do
            []
          },
          {
-           "file",
-           clip_data,
-           {"form-data", [name: "files[0]", filename: clip_name <> ".mp3"]},
+           :file,
+           clip[:path],
+           {"form-data", [name: "files[0]", filename: clip[:name] <> ".mp3"]},
            []
          }
        ]}

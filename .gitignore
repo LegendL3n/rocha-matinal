@@ -26,3 +26,5 @@ rocha_matinal-*.tar
 /tmp/
 
 .webhook_url
+
+/clips/
