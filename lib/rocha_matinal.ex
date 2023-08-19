@@ -2,12 +2,13 @@ defmodule Mix.Tasks.RochaMatinal.Task do
   use Mix.Task
 
   alias HTTPoison, as: HTTP
+  alias ClipProvider
   alias DiscordSender
 
   def run(_) do
     HTTP.start
 
-    DiscordSender.send_message("Ola", "HEhe")
+    ClipProvider.get_random_clip |> DiscordSender.send_clip
 
     :ok
   end

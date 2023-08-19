@@ -1,2 +1,0 @@
-defmodule FileProvider do
-end
