@@ -7,7 +7,8 @@ defmodule RochaMatinal.MixProject do
       version: "0.1.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      default_task: "rocha_matinal.app"
     ]
   end
 

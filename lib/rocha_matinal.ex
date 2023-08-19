@@ -1,9 +1,14 @@
-defmodule RochaMatinal do
-  use Application
+defmodule Mix.Tasks.RochaMatinal.App do
+  use Mix.Task
 
-  def start(_type, _args) do
-    children = [DiscordSender]
+  alias HTTPoison, as: HTTP
+  alias DiscordSender
 
-    Supervisor.start_link(children, strategy: :one_for_one)
+  def run(_) do
+    HTTP.start
+
+    DiscordSender.send_message("Ola", "HEhe")
+
+    :ok
   end
 end

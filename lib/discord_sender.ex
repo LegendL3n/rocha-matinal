@@ -15,7 +15,7 @@ defmodule DiscordSender do
   end
 
   defp send_discord_request(json_payload, clip_name, clip_data) do
-    webhook_url = System.get_env("WEBHOOK_URL")
+    webhook_url = File.read!(".webhook_url")
 
     HTTP.request!(
       :post,
