@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.RochaMatinal.App do
+defmodule Mix.Tasks.RochaMatinal.Task do
   use Mix.Task
 
   alias HTTPoison, as: HTTP

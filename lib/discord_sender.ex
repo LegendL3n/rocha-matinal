@@ -6,8 +6,7 @@ defmodule DiscordSender do
   @avatar_url "https://i.ibb.co/QHHPPH4/roch1.jpg"
 
   def send_message(clip_name, clip_data) do
-    json = build_json_payload()
-    send_discord_request(json, clip_name, clip_data)
+    build_json_payload() |> send_discord_request(clip_name, clip_data)
   end
 
   defp build_json_payload do
