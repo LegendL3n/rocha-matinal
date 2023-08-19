@@ -1,18 +1,9 @@
 defmodule RochaMatinal do
-  @moduledoc """
-  Documentation for `RochaMatinal`.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [DiscordSender]
 
-  ## Examples
-
-      iex> RochaMatinal.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end

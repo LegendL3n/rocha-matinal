@@ -24,3 +24,5 @@ rocha_matinal-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+run-iex.ps1
