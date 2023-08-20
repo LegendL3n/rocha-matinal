@@ -5,6 +5,7 @@ defmodule Mix.Tasks.RochaMatinal.Task do
   alias ClipProvider
   alias DiscordSender
 
+  @spec run(any) :: :ok
   def run(_) do
     HTTP.start
 

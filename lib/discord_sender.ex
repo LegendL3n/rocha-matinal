@@ -5,8 +5,10 @@ defmodule DiscordSender do
   @username "Fernando Rocha"
   @avatar_url "https://i.ibb.co/QHHPPH4/roch1.jpg"
 
+  @spec send_clip(nil | maybe_improper_list | map) :: :ok
   def send_clip(clip) do
     build_json_payload() |> send_discord_request(clip)
+    :ok
   end
 
   defp build_json_payload do
