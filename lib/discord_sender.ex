@@ -1,18 +1,13 @@
 defmodule DiscordSender do
   alias HTTPoison, as: HTTP
-  alias Poison
 
   @username "Fernando Rocha"
   @avatar_url "https://i.ibb.co/QHHPPH4/roch1.jpg"
 
   @spec send_clip(nil | maybe_improper_list | map) :: :ok
   def send_clip(clip) do
-    build_json_payload() |> send_discord_request(clip)
+    send_discord_request("{\"username\": \"#{@username}\", \"avatar_url\": \"#{@avatar_url}\"}", clip)
     :ok
-  end
-
-  defp build_json_payload do
-    Poison.encode!(%{"username" => @username, "avatar_url" => @avatar_url})
   end
 
   defp send_discord_request(json_payload, clip) do
