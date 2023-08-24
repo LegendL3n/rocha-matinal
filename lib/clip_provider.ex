@@ -1,5 +1,6 @@
 defmodule ClipProvider do
-  @extract_clip_name ~r/.+\/\d\d\. (.+) -.+\.mp3/U
+  @extract_clip_name_regex ~r/.+\/\d\d\. (.+) -.+\.mp3/U
+  @sanitize_regex ~r/[^a-zA-Z0-9]+/
 
   @spec get_random_clip :: [{:name, binary} | {:path, binary}]
   @doc """
@@ -20,7 +21,7 @@ defmodule ClipProvider do
   end
 
   defp get_clip_name(path) do
-    [_, name] = Regex.run(@extract_clip_name, path)
-    name
+    [_, name] = Regex.run(@extract_clip_name_regex, path)
+    Regex.replace(@sanitize_regex, name, "_")
   end
 end
