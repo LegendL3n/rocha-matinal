@@ -6,7 +6,7 @@ defmodule RochaMatinal.MixProject do
       app: :rocha_matinal,
       version: "0.1.0",
       elixir: "~> 1.15",
-      start_permanent: Mix.env() == :prod,
+      start_permanent: false,
       deps: deps(),
       default_task: "rocha_matinal.task"
     ]
@@ -21,7 +21,8 @@ defmodule RochaMatinal.MixProject do
   defp deps do
     [
       {:httpoison, "~> 2.0"},
-      {:poison, "~> 5.0"}
+      {:poison, "~> 5.0"},
+      {:cubdb, "~> 2.0.2"}
     ]
   end
 end
