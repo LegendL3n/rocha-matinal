@@ -5,7 +5,7 @@ defmodule DiscordSender do
   @username "Fernando Rocha"
   @avatar_url "https://i.ibb.co/QHHPPH4/roch1.jpg"
 
-  @spec send_clip([name: binary, path: binary]) :: :ok
+  @spec send_clip(%Clip{name: String, path: String}) :: :ok
   def send_clip(clip) do
     build_json_payload() |> send_discord_request(clip)
     :ok
@@ -31,8 +31,8 @@ defmodule DiscordSender do
          },
          {
            :file,
-           clip[:path],
-           {"form-data", [name: "files[0]", filename: clip[:name] <> ".mp3"]},
+           clip.path,
+           {"form-data", [name: "files[0]", filename: clip.name <> ".mp3"]},
            []
          }
        ]}

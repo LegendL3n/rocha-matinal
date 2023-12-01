@@ -12,3 +12,4 @@ erl_crash.dump
 .webhook_url
 
 /clips/
+/database

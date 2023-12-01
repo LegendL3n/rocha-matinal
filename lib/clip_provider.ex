@@ -1,7 +1,11 @@
+defmodule Clip do
+  defstruct name: String, path: String
+end
+
 defmodule ClipProvider do
   @extract_clip_name ~r/.+\/\d\d\. (.+) -.+\.mp3/U
 
-  @spec get_random_clip :: [name: binary, path: binary]
+  @spec get_random_clip :: %Clip{name: String, path: String}
   @doc """
   Returns a random clip from the clips/ folder, ignoring the first of a CD. (e.g. "01. Introdução")
   """
@@ -14,9 +18,10 @@ defmodule ClipProvider do
   end
 
   defp is_not_intro_clip(clip_name), do: !String.starts_with?(clip_name, "01.")
-
+  
+  @spec get_random_clip :: %Clip{name: String, path: String}
   defp build_clip(path) do
-    [name: get_clip_name(path), path: path]
+    %Clip{name: get_clip_name(path), path: path}
   end
 
   defp get_clip_name(path) do

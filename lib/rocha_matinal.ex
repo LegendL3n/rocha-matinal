@@ -2,14 +2,19 @@ defmodule Mix.Tasks.RochaMatinal.Task do
   use Mix.Task
 
   alias HTTPoison, as: HTTP
-  alias ClipProvider
-  alias DiscordSender
+  import ClipProvider
+  alias ClipStore, as: Store
+  import DiscordSender
 
   @spec run(any) :: :ok
   def run(_) do
     HTTP.start
 
-    ClipProvider.get_random_clip |> DiscordSender.send_clip
+    clip = get_random_clip()
+
+    send_clip(clip)
+
+    Store.init |> Store.store_sent_clip(clip)
 
     :ok
   end
