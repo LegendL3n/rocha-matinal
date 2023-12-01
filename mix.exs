@@ -20,7 +20,8 @@ defmodule RochaMatinal.MixProject do
 
   defp deps do
     [
-      {:httpoison, "~> 2.0"}
+      {:httpoison, "~> 2.0"},
+      {:jason, "~> 1.4"}
     ]
   end
 end

@@ -14,7 +14,7 @@ defmodule ClipProvider do
     Path.wildcard("clips/*/*.mp3")
   end
 
-  defp is_not_intro_clip(clip), do: !(clip =~ "01")
+  defp is_not_intro_clip(clip), do: !(clip =~ "01.")
 
   defp build_clip(path) do
     IO.puts "Building clip '#{path}'"
