@@ -7,7 +7,7 @@ An Elixir bot that sends a random clip of Fernando Rocha to a Discord server.
 ## Install Elixir (via asdf)
 
 1. Install asdf (guide [here](https://asdf-vm.com/guide/getting-started.html#_2-download-asdf))
-1. **You may need to install ncurses** (`install ncurses-dev`)
+1. **You may need to install ncurses and libssl-dev** (`sudo apt install ncurses-dev libssl-dev`)
 1. Install via asdf: 
     ```sh
     asdf plugin add erlang
