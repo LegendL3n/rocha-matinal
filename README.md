@@ -19,4 +19,5 @@ An Elixir bot that sends a random clip of Fernando Rocha to a Discord server.
 1. _Optionally_ set it as default:
    ```sh
    asdf global erlang 26.2.5
+   asdf global elixir 1.16.3-otp-26
    ```
