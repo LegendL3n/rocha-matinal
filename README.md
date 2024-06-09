@@ -15,6 +15,7 @@ An Elixir bot that sends a random clip of Fernando Rocha to a Discord server.
     asdf install erlang 26.2.5
     asdf install elixir 1.16.3-otp-26
     ```
+1. Fill the `.webhook_url` file (containing only the webhook URL generated in the channel settings)
 1. Run with `mix`
 1. _Optionally_ set it as default:
    ```sh
