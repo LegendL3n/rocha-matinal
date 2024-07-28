@@ -25,6 +25,9 @@ rocha_matinal-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-.webhook_url
-
 /clips/
+
+/config
+
+# Executable
+rocha_matinal
